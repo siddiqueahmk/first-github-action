@@ -1,13 +1,13 @@
-all: build install
+all: build
 
-.PHONY: build install clean
+.PHONY: build 
 
 build: sample.c
-	gcc -o sample sample.c
+	gcc -o sample.exe sample.c
 	
-install:
-	mkdir -p bin
-	mv sample.exe bin\
+#install:
+#	mkdir -p bin
+#	mv sample.exe bin\
 	
 #clean:
 #	rm -f bin\sample.exe
