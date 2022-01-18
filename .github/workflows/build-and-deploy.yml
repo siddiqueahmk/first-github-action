@@ -22,7 +22,6 @@ jobs:
         echo github.event_name: ${{ github.event_name }}
         echo github.workspace: ${{ github.workspace }}
         cd ${{ github.workspace }}
-        gcc -o sample.exe sample.c
         gmake all
         
     - name: test
