@@ -3,33 +3,29 @@ name: build-and-deploy
 
 #execute the action on following events
 on:
-    push:
-        branches:
-            - main
+  push:
+    branches: [ main ]
 
 #this workflow has two jobs 1) to build and 2) to deploy
 jobs:
-    build:
-        name: build-windows
-        runs-on: [self-hosted, windows]
+  build:
+    name: build-windows
+    runs-on: [ self-hosted ]    
         
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+      run: |
+        echo this action will run on self hosted windows system
+        echo github.event.action: ${{ github.event.action }}
+        echo github.event_name: ${{ github.event_name }}
         
-        steps:
-        - name: checkout
-          uses: actions/checkout@v2
-          run: |
-            echo this action will run on self hosted windows system
-            echo github.event.action: ${{ github.event.action }}
-            echo github.event_name: ${{ github.event_name }}
+    - name: build
+      run: |
+        cd ${{ github.workspace }}
+        gmake all
         
-        - name: build
-          run: |
-            cd ${{ github.workspace }}
-            gmake all
-        
-        - name: test
-          run: |
-            cd bin
-            sample.exe
-
-    
+    - name: test
+      run: |
+        cd ${{ github.workspace }}\bin
+        sample.exe
