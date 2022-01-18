@@ -1,4 +1,4 @@
-all: clean build install
+all: build install
 
 .PHONY: build install clean
 
@@ -9,5 +9,5 @@ install:
 	mkdir -p bin
 	mv sample.exe bin\
 	
-clean:
-	rm -f bin\sample.exe
+#clean:
+#	rm -f bin\sample.exe
