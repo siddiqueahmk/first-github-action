@@ -18,9 +18,9 @@ jobs:
 
     - name: build
       run: |
-        echo this action will run on self hosted windows system
-        echo github.event.action: ${{ github.event.action }}
+        echo "this action will run on self hosted windows system"
         echo github.event_name: ${{ github.event_name }}
+        echo github.workspace: ${{ github.workspace }}
         cd ${{ github.workspace }}
         gmake all
         
