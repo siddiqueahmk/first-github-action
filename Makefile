@@ -6,8 +6,8 @@ build: sample.c
 	gcc -o sample sample.c
 	
 install:
-	if not exist "bin" mkdir bin
-	move sample.exe bin\
+	mkdir -p bin
+	mv sample.exe bin\
 	
 clean:
-	rem -f bin\sample.exe
+	rm -f bin\sample.exe
