@@ -15,13 +15,12 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
+
+    - name: build
       run: |
         echo this action will run on self hosted windows system
         echo github.event.action: ${{ github.event.action }}
         echo github.event_name: ${{ github.event_name }}
-        
-    - name: build
-      run: |
         cd ${{ github.workspace }}
         gmake all
         
