@@ -23,9 +23,10 @@ jobs:
         echo github.workspace: ${{ github.workspace }}
         cd ${{ github.workspace }}
         gmake all
+        mkdir build
+        copy sample.exe build\
         
     - name: test
       run: |
-        cd ${{ github.workspace }}
-        cd ${{ github.workspace }}
+        cd ${{ github.workspace }}\build
         .\sample.exe
