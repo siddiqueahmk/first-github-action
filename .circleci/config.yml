@@ -3,18 +3,27 @@ version: 2.1
 orbs:
   win: circleci/windows@2.2.0
 
+workflows:
+  hello-world:
+    jobs:
+      - build
+
 jobs:
   build:
     executor:
       name: win/default
+    working_directory: C:\Users\circleci\project\first-github-action
     steps:
-      # default shell is Powershell
+      - checkout:
+          path: C:\Users\circleci\project
+      
       - run:
-         command: $(echo hello | Out-Host; $?) -and $(echo world | Out-Host; $?)
-         shell: powershell.exe
+          name: "Run Build step"
+          command: |
+              gmake all
+              mkdir build
+              copy sample.exe build\
+              
       - run:
-         command: echo hello && echo world
-         shell: bash.exe
-      - run:
-         command: echo hello & echo world
-         shell: cmd.exe
+          name: "Test the executable"
+          command: .\build\sample.exe
