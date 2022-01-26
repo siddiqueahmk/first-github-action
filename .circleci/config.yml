@@ -20,6 +20,7 @@ jobs:
       - run:
           name: "Run Build step"
           command: |
+              timeout: 1800
               Invoke-RestMethod -Uri https://software-dl.ti.com/ccs/esd/CCSv8/CCS_8_3_1/exports/CCS8.3.1.00004_win32.zip -OutFile  ./CCS8.3.1.00004_win32.zip
               gmake all
               mkdir build
