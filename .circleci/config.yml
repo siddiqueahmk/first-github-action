@@ -1,8 +1,5 @@
 version: 2.1
 
-orbs:
-  win: circleci/windows@2.2.0
-
 workflows:
   hello-world:
     jobs:
@@ -10,13 +7,14 @@ workflows:
 
 jobs:
   build:
-    executor:
-      name: win/default
+    machine:
+      image: windows-default # Windows machine image
+      resource_class: windows.medium
       shell: powershell.exe
-    working_directory: C:\Users\circleci\project\first-github-action
+      working_directory: C:\Users\circleci\project\first-github-action
     steps:
       - checkout:
-          path: C:\Users\circleci\project
+          path: C:\Users\circleci\project\first-github-action
       
       - run:
           name: "Run Build step"
