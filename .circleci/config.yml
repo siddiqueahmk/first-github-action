@@ -9,9 +9,9 @@ jobs:
   build:
     machine:
       image: windows-default # Windows machine image
-      resource_class: windows.medium
-      shell: powershell.exe
-      working_directory: C:\Users\circleci\project\first-github-action
+    resource_class: windows.medium
+    shell: powershell.exe
+    working_directory: C:\Users\circleci\project\first-github-action
     steps:
       - checkout:
           path: C:\Users\circleci\project\first-github-action
