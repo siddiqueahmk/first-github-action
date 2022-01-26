@@ -21,10 +21,10 @@ jobs:
           name: "Run Build step"
           no_output_timeout: 30m
           command: |
-              Invoke-RestMethod -Uri https://software-dl.ti.com/ccs/esd/CCSv11/CCS_11_1_0/exports/CCS11.1.0.00011_win64.zip -OutFile  ./CCS11.1.0.00011_win64.zip
-              powershell -command "Expand-Archive" .\CCS11.1.0.00011_win64.zip .
-              cd CCS11.1.0.00011_win64
-              ccs_setup_11.1.0.00011.exe --prefix c:\ti\ --enable-components PF_MMWAVE --mode unattended --unattendedmodeui none
+              #Invoke-RestMethod -Uri https://software-dl.ti.com/ccs/esd/CCSv11/CCS_11_1_0/exports/CCS11.1.0.00011_win64.zip -OutFile  ./CCS11.1.0.00011_win64.zip
+              #powershell -command "Expand-Archive" .\CCS11.1.0.00011_win64.zip .
+              #cd CCS11.1.0.00011_win64
+              #ccs_setup_11.1.0.00011.exe --prefix c:\ti\ --enable-components PF_MMWAVE --mode unattended --unattendedmodeui none
               gmake all
               mkdir build
               copy sample.exe build\
