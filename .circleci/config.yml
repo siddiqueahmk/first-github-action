@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  win: circleci/windows@2.4.0
+
 workflows:
   hello-world:
     jobs:
@@ -7,9 +10,9 @@ workflows:
 
 jobs:
   build:
-    machine:
-      image: windows-default # Windows machine image
-    resource_class: windows.medium
+    executor:
+      name: win/default
+    working_directory: C:\Users\circleci\project\first-github-action
     steps:
       - checkout:
           path: C:\Users\circleci\project\first-github-action
