@@ -12,6 +12,7 @@ jobs:
   build:
     executor:
       name: win/default
+      size: "large"
     working_directory: C:\Users\circleci\project\first-github-action
     steps:
       - checkout:
